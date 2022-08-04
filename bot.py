@@ -14,14 +14,14 @@ app = Client("tgid", bot_token=BOT_TOKEN, api_hash=API_HASH, api_id=API_ID)
 
 
 @app.on_message(filters.command(['start']))
-async def start(c, m):
-    await m.reply_text(text=f"Hello 👋", reply_to_message_id=m.message_id)
+async def start(client, message):
+    await m.reply_text(text=f"Hello 👋", reply_to_message_id=message.message_id)
 
 
 @app.on_message(filters.command(['id']))
-async def id(c, m):
-    await c.send_chat_action(m.chat.id, "typing")
-    await m.reply_text(text=f"`{m.chat.id}`", reply_to_message_id=m.message_id)
+async def id(client, message):
+    await client.send_chat_action(message.chat.id, "typing")
+    await message.reply_text(text=f"`{message.chat.id}`", reply_to_message_id=message.message_id)
 
 
 app.run()
