@@ -15,7 +15,7 @@ app = Client("tgid", bot_token=BOT_TOKEN, api_hash=API_HASH, api_id=API_ID)
 
 @app.on_message(filters.command(['start']))
 async def start(client, message):
-    await m.reply_text(text=f"Hello 👋", reply_to_message_id=message.message_id)
+    await message.reply_text(text=f"Hello 👋", reply_to_message_id=message.message_id)
 
 
 @app.on_message(filters.command(['id']))
